@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="manipulator_urdf">
+
+ <!-- Dummy root to base link -->
+  <link name="dummy_root"/>
+  <joint name="dummy_to_base" type="fixed">
+    <parent link="dummy_root"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.000195357232395832 0 0.0024999999999995" rpy="0 0 0" />
+      <mass value="0.139707136084499" />
+      <inertia ixx="0.000362153855961995" ixy="1.33420390025088E-19" ixz="-6.69804536161731E-18" iyy="0.000407966760717313" iyz="2.52141449948646E-18" izz="0.000769538503612289" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="base_plate2">
+    <inertial>
+      <origin xyz="0 -2.73796862626519E-06 -5.55111512312578E-16" rpy="0 0 0" />
+      <mass value="0.0747522729666689" />
+      <inertia ixx="9.24758403358081E-05" ixy="6.22795669521492E-21" ixz="-1.6101929216591E-18" iyy="9.37333665970082E-05" iyz="5.47807548040104E-19" izz="0.000185897739128789" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/base_plate2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/base_plate2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="baseplate2_j_base_link" type="revolute">
+    <origin xyz="-0.00205319181971286 0 0.0575000000000002" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="base_plate2" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="6.28" effort="300" velocity="3" />
+  </joint>
+  <link name="link1_1connector">
+    <inertial>
+      <origin xyz="-1.78433523512211E-08 0.049721201098077 0.0362112919496935" rpy="0 0 0" />
+      <mass value="0.0423060400773229" />
+      <inertia ixx="7.17335275476126E-05" ixy="-1.51516466739471E-11" ixz="7.78822258422359E-12" iyy="3.8169797294216E-05" iyz="1.21210221498042E-05" izz="3.42782397609643E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_1connector.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.96078431372549 0.96078431372549 0.964705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_1connector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link1_1connector_j_base_plate_2" type="fixed">
+    <origin xyz="0.0300000000000022 -0.055527801921881 0.00650000000000017" rpy="0 0 0" />
+    <parent link="base_plate2" />
+    <child link="link1_1connector" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="shaft1">
+    <inertial>
+      <origin xyz="2.22044604925031E-16 -2.22044604925031E-16 -2.22044604925031E-16" rpy="0 0 0" />
+      <mass value="0.00614181363776804" />
+      <inertia ixx="3.48958785357564E-07" ixy="2.80204717663456E-20" ixz="-1.2457721375434E-19" iyy="8.42636468018142E-06" iyz="-5.1395488726198E-23" izz="8.42636468018142E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shaft1_j_link1_1connector" type="fixed">
+    <origin xyz="-0.03 0.081587371771404 0.0289117875999407" rpy="0 0 0" />
+    <parent link="link1_1connector" />
+    <child link="shaft1" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link1_1">
+    <inertial>
+      <origin xyz="-4.64495775176488E-10 -0.000100326015627594 0.283839487614988" rpy="0 0 0" />
+      <mass value="0.134763915806832" />
+      <inertia ixx="0.00395011652504064" ixy="-3.21643583369989E-13" ixz="2.25726552672763E-12" iyy="0.00392825322370088" iyz="8.89426389737491E-08" izz="2.33007782067884E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.96078431372549 0.96078431372549 0.964705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link1_1_j_shaft1" type="revolute">
+    <origin xyz="0.0390000000000001 0 0" rpy="0 0 0" />
+    <parent link="shaft1" />
+    <child link="link1_1" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.34" effort="700" velocity="3" />
+  </joint>
+  <link name="shaft2">
+    <inertial>
+      <origin xyz="0 0 -4.44089209850063E-16" rpy="0 0 0" />
+      <mass value="0.00614181363776804" />
+      <inertia ixx="3.48958785357564E-07" ixy="2.80622183067328E-20" ixz="-1.43664514494482E-19" iyy="8.42636468018141E-06" iyz="1.06844162459726E-23" izz="8.42636468018141E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shaft2_j_link1_1" type="fixed">
+    <origin xyz="-0.0360000000000091 0 0.58" rpy="0 0 0" />
+    <parent link="link1_1" />
+    <child link="shaft2" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link2_1">
+    <inertial>
+      <origin xyz="4.51383042054943E-09 -0.19237927841626 -0.000741998009010203" rpy="0 0 0" />
+      <mass value="0.0786855946436255" />
+      <inertia ixx="0.00191785198103841" ixy="4.36717235357529E-11" ixz="-7.63256976813492E-12" iyy="1.19650597389385E-05" iyz="-2.45427436092979E-06" izz="0.00190672624165483" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link2_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.96078431372549 0.96078431372549 0.964705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shaft2_j_link2_1" type="revolute">
+    <origin xyz="0.028 0 0" rpy="0 0 0" />
+    <parent link="shaft2" />
+    <child link="link2_1" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.047" upper="0.68" effort="500" velocity="3" />
+  </joint>
+  <link name="shaft3">
+    <inertial>
+      <origin xyz="2.22044604925031E-16 1.11022302462516E-16 -4.44089209850063E-16" rpy="0 0 0" />
+      <mass value="0.00614181363776805" />
+      <inertia ixx="3.48958785357564E-07" ixy="2.77982763609887E-20" ixz="-1.43792784651756E-19" iyy="8.42636468018144E-06" iyz="1.96800054119603E-24" izz="8.42636468018144E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="saft3_j_link2_1" type="fixed">
+    <origin xyz="-0.0310000000000019 -0.44 0" rpy="0 0 0" />
+    <parent link="link2_1" />
+    <child link="shaft3" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link3">
+    <inertial>
+      <origin xyz="-0.000156441051319289 5.65094705323177E-05 -0.0450975512468108" rpy="0 0 0" />
+      <mass value="0.224806547118785" />
+      <inertia ixx="0.000456163453198375" ixy="6.46252776641713E-10" ixz="-5.87763952919612E-07" iyy="0.000483845569489242" iyz="6.28694008517293E-08" izz="0.000289692982245641" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link3_j_shaft3" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="shaft3" />
+    <child link="link3" />
+    <axis xyz="1 0 0" />
+    <limit lower="-3.14" upper="0.11" effort="10" velocity="3" />
+  </joint>
+  <link name="bevel1">
+    <inertial>
+      <origin xyz="1.57568920888806E-06 8.72524664519148E-07 0.00618798510990271" rpy="0 0 0" />
+      <mass value="0.0461593276316264" />
+      <inertia ixx="1.04939527608266E-05" ixy="-9.91261610146335E-10" ixz="-6.27975101843376E-10" iyy="1.04918542659061E-05" iyz="-3.50073583797341E-10" izz="1.00345461695118E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/bevel1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.964705882352941 0.964705882352941 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/bevel1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="bevel1_j_link3" type="revolute">
+    <origin xyz="-0.000499499999997655 0 -0.104999996518335" rpy="0 0 0" />
+    <parent link="link3" />
+    <child link="bevel1" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="6.283" effort="0.5" velocity="3" />
+  </joint>
+  <link name="gripper">
+    <inertial>
+      <origin xyz="-0.00947390080722954 7.99360577730113E-15 -0.032696228721947" rpy="0 0 0" />
+      <mass value="0.341464156501705" />
+      <inertia ixx="0.000604244616763682" ixy="5.09909105392224E-18" ixz="-0.000143274519057227" iyy="0.00239586527325235" iyz="-2.1241809513346E-18" izz="0.00198563943087105" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/gripper.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.964705882352941 0.964705882352941 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_j_bevel1" type="fixed">
+    <origin xyz="0 0 -0.0299324571895392" rpy="0 0 0" />
+    <parent link="bevel1" />
+    <child link="gripper" />
+    <axis xyz="0 0 0" />
+    <limit lower="0" upper="6.28" effort="0.5" velocity="3" />
+  </joint>
+  <link name="ss_rod">
+    <inertial>
+      <origin xyz="0.0975000000000004 7.66053886991358E-15 0" rpy="0 0 0" />
+      <mass value="0.00282743338823081" />
+      <inertia ixx="5.65486677646163E-09" ixy="4.44618822704266E-20" ixz="-1.86006780902391E-19" iyy="1.1931062039987E-05" iyz="6.84209305664013E-34" izz="1.1931062039987E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/ss_rod.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/ss_rod.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ss_rod_j_gripper" type="fixed">
+    <origin xyz="-0.102499999999999 0 -0.0410675393287978" rpy="0 0 0" />
+    <parent link="gripper" />
+    <child link="ss_rod" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="threded_rod_up">
+    <inertial>
+      <origin xyz="2.22044604925031E-16 7.82707232360735E-15 -1.77635683940025E-15" rpy="0 0 0" />
+      <mass value="0.0121489228511336" />
+      <inertia ixx="9.39627397423046E-08" ixy="2.1935928770699E-19" ixz="-1.00881315866112E-18" iyy="6.33226212195255E-05" iyz="3.53881103869049E-33" izz="6.33226212195255E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/threded_rod_up.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/threded_rod_up.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="threded_rod_up_j_gripper" type="fixed">
+    <origin xyz="-0.017499999999999 0 -0.0770675393287958" rpy="0 0 0" />
+    <parent link="gripper" />
+    <child link="threded_rod_up" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="claw2">
+    <inertial>
+      <origin xyz="-0.00296412475331143 -3.50262785014932E-06 -0.0565127254779711" rpy="0 0 0" />
+      <mass value="0.134410672799194" />
+      <inertia ixx="0.000371952908819462" ixy="5.50044665304092E-09" ixz="3.30601032585245E-05" iyy="0.000362575120952868" iyz="-2.02999010553453E-09" izz="2.71292076611256E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/claw2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.964705882352941 0.964705882352941 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/claw2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="claw2_j_threded_rod_up" type="prismatic">
+    <origin xyz="-0.0337770678111837 0 0" rpy="0 0 0" />
+    <parent link="threded_rod_up" />
+    <child link="claw2" />
+    <axis xyz="1 0 0" />
+    <limit lower="0.00" upper="0.04" effort="3" velocity="3" />
+  </joint>
+  <link name="claw1">
+    <inertial>
+      <origin xyz="-0.00575880743550372 3.50262773646248E-06 -0.0565127254779658" rpy="0 0 0" />
+      <mass value="0.134410672799193" />
+      <inertia ixx="0.00037195290881946" ixy="5.50044657542522E-09" ixz="-3.30601032585136E-05" iyy="0.000362575120952863" iyz="2.02998931355451E-09" izz="2.71292076611234E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/claw1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.964705882352941 0.964705882352941 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/claw1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="claw1_j_threded_rod_up" type="prismatic">
+    <origin xyz="0.1025 0 -0.000298999999999827" rpy="0 0 0" />
+    <parent link="threded_rod_up" />
+    <child link="claw1" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.045" upper="0.0" effort="3" velocity="3" />
+    <mimic joint="claw2_j_threded_rod_up" multiplier="-1.0" offset="0.0"/>
+  </joint>
+  <link name="motor">
+    <inertial>
+      <origin xyz="-0.043637951435167 7.56764734016757E-06 1.05474587688281E-05" rpy="0 0 0" />
+      <mass value="0.0558864492200027" />
+      <inertia ixx="5.79372255970093E-06" ixy="1.39156228330173E-08" ixz="1.93949918217533E-08" iyy="3.78532048080649E-05" iyz="5.61857630483807E-09" izz="3.7857004489853E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/motor.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/motor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="motor_j_gripper" type="fixed">
+    <origin xyz="-0.0999999999999981 0 -0.0770675393287972" rpy="0 0 0" />
+    <parent link="gripper" />
+    <child link="motor" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="shaft_coupler">
+    <inertial>
+      <origin xyz="3.43275563530199E-09 2.51912170445845E-06 -1.8443343692276E-06" rpy="0 0 0" />
+      <mass value="0.00642699718557648" />
+      <inertia ixx="2.90757438236863E-07" ixy="-7.46111633042868E-14" ixz="-1.46031394690198E-13" iyy="6.22303514989085E-07" iyz="-1.47141090258298E-10" izz="6.22210285079933E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft_coupler.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/shaft_coupler.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shaft_coupler_j_gripper" type="fixed">
+    <origin xyz="-0.0825 -0.00017997 -0.076937" rpy="0 0 0" />
+    <parent link="gripper" />
+    <child link="shaft_coupler" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="gear1">
+    <inertial>
+      <origin xyz="0.0107326910509893 -4.05231403988182E-15 -3.99680288865056E-15" rpy="0 0 0" />
+      <mass value="0.0170959118700181" />
+      <inertia ixx="2.66648678784873E-06" ixy="3.60545421608951E-19" ixz="3.76705672624576E-20" iyy="2.15564618007614E-06" iyz="-1.24153481093661E-15" izz="2.15564617597141E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/gear1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/gear1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gear1_j_gripper" type="fixed">
+    <origin xyz="0.1 0 -0.077068" rpy="0 0 0" />
+    <parent link="gripper" />
+    <child link="gear1" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="thrededrod_down">
+    <inertial>
+      <origin xyz="-2.22044604925031E-16 8.27116153345742E-15 -1.33226762955019E-15" rpy="0 0 0" />
+      <mass value="0.0121489228511336" />
+      <inertia ixx="9.39627397423046E-08" ixy="2.1935928770699E-19" ixz="-1.00881315866112E-18" iyy="6.33226212195255E-05" iyz="3.53881103869049E-33" izz="6.33226212195255E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/thrededrod_down.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/thrededrod_down.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="threded_rod_down_j_gripper" type="fixed">
+    <origin xyz="0.0025 0 -0.11487" rpy="0 0 0" />
+    <parent link="gripper" />
+    <child link="thrededrod_down" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="gear2">
+    <inertial>
+      <origin xyz="0.0107326910509891 -1.37667655053519E-14 0" rpy="0 0 0" />
+      <mass value="0.0170959118700137" />
+      <inertia ixx="2.66648678784784E-06" ixy="4.05407438152039E-19" ixz="1.20367294634015E-20" iyy="2.15564617709311E-06" iyz="2.21072179691744E-15" izz="2.15564617895344E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/gear2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/gear2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gear2_j_gripper" type="fixed">
+    <origin xyz="0.1 0 -0.11487" rpy="0 0 0" />
+    <parent link="gripper" />
+    <child link="gear2" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link2_2">
+    <inertial>
+      <origin xyz="-4.51383175281705E-09 -0.192379652731722 0.000637447708020655" rpy="0 0 0" />
+      <mass value="0.0786855940633513" />
+      <inertia ixx="0.00191785196637821" ixy="-4.36675770328836E-11" ixz="-7.66566324060629E-12" iyy="1.19629535379423E-05" iyz="1.42455549814404E-06" izz="0.00190672833319192" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link2_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.96078431372549 0.96078431372549 0.964705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link2_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shaft2_j_link2_2" type="revolute">
+    <origin xyz="-0.0340000000000003 0 0" rpy="0 0 0" />
+    <parent link="shaft2" />
+    <child link="link2_2" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.047" upper="0.68" effort="500" velocity="3" />
+    <mimic joint="shaft2_j_link2_1" multiplier="1.0" offset="0.0"/>
+  </joint>
+  <link name="link1_2">
+    <inertial>
+      <origin xyz="-4.64495997221093E-10 -0.000100326015642249 0.283839487614995" rpy="0 0 0" />
+      <mass value="0.13476391580683" />
+      <inertia ixx="0.00395011652504059" ixy="-3.21643551710228E-13" ixz="2.25726564739554E-12" iyy="0.00392825322370083" iyz="8.89426389718591E-08" izz="2.33007782067883E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.96078431372549 0.96078431372549 0.964705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link1_2_j_shaft1" type="revolute">
+    <origin xyz="-0.0389999999999997 0 0" rpy="0 0 0" />
+    <parent link="shaft1" />
+    <child link="link1_2" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57" effort="700" velocity="3" />
+    <mimic joint="link1_1_j_shaft1" multiplier="1.0" offset="0.0"/>
+  </joint>
+  <link name="link1_2_connector">
+    <inertial>
+      <origin xyz="-1.78433527953104E-08 0.0497212010980761 0.0362112919496934" rpy="0 0 0" />
+      <mass value="0.0423060400773221" />
+      <inertia ixx="7.17335275476114E-05" ixy="-1.51516465982144E-11" ixz="7.78822265030405E-12" iyy="3.81697972942157E-05" iyz="1.21210221498042E-05" izz="3.42782397609634E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_2_connector.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.96078431372549 0.96078431372549 0.964705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://manip_description/meshes/link1_2_connector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link1_2connector_j_base_plate2" type="fixed">
+    <origin xyz="-0.0299999999999969 -0.0555278019218802 0.0064999999999994" rpy="0 0 0" />
+    <parent link="base_plate2" />
+    <child link="link1_2_connector" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+</robot>

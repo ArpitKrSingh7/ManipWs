@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: newmanip_description
+    relative_path: urdf/new_manipulator_urdf.urdf
+  srdf:
+    relative_path: config/newmanip_description.srdf
+  package_settings:
+    author_name: Arpit Kumar Singh
+    author_email: arpitkumarsingh9470@gmail.com
+    generated_timestamp: 1750099719
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

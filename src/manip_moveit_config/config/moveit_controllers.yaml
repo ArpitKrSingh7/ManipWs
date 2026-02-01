@@ -1,0 +1,31 @@
+# MoveIt Controller Configuration
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - manip_arm_controller
+    - manip_hand_controller
+
+  manip_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory # Full action namespace
+    joints:
+      - baseplate2_j_base_link
+      - link1_1_j_shaft1
+      - shaft2_j_link2_1
+      - link3_j_shaft3
+      - bevel1_j_link3
+    default: true
+    constraints:
+      goal_time: 0.5
+      stopped_velocity_tolerance: 0.01
+
+  manip_hand_controller:
+    type: ParallelGripperCommand
+    action_ns: gripper_cmd # Standard namespace for parallel gripper
+    joints:
+      - claw2_j_threded_rod_up
+    default: false
+    parallel: true
+    max_effort: 5.0
+    goal_tolerance: 0.01

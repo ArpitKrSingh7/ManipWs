@@ -1,0 +1,53 @@
+default_velocity_scaling_factor: 0.5  # Increased from 0.1
+default_acceleration_scaling_factor: 0.5
+
+joint_limits:
+  manipulaotr_base_plate_j_base_plate:  # Fixed typo
+    has_position_limits: true
+    min_position: 0.0
+    max_position: 6.28  # ~2*pi
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 8.0
+
+  lin1_bottom_j_motor_holder_plate2:
+    has_position_limits: true
+    min_position: -1.0  # Matches URDF
+    max_position: 0.0
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 8.0
+
+  link2_base_holder_j_link2_holder_plate:
+    has_position_limits: true
+    min_position: -0.85  # Matches URDF
+    max_position: 0.85
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 8.0
+
+  bevel_2_1_j_link3:
+    has_position_limits: true
+    min_position: -0.2  # Matches URDF
+    max_position: 3.14  # ~pi
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 8.0
+
+  bevel1_j_link3_coupler:
+    has_position_limits: true
+    min_position: 0.0
+    max_position: 6.28  # ~2*pi
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 8.0
+
+  claw2_j_threded_rod_down:
+    has_position_limits: true
+    min_position: 0.0    # Matches URDF
+    max_position: 0.04
+    max_velocity: 0.03
+    has_acceleration_limits: true
+    max_acceleration: 8.0

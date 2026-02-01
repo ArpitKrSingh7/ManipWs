@@ -1,0 +1,9 @@
+# Default initial positions for newmanip_description's ros2_control fake system
+
+initial_positions:
+  bevel1_j_link3_coupler: 0
+  bevel_2_1_j_link3: 0
+  claw2_j_threded_rod_down: 0.04
+  lin1_bottom_j_motor_holder_plate2: 0
+  link2_base_holder_j_link2_holder_plate: 0
+  manipulaotr_base_plate_j_base_plate: 0

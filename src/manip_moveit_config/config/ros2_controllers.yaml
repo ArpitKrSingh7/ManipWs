@@ -1,0 +1,31 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz
+
+    manip_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    manip_hand_controller:
+      type: parallel_gripper_action_controller/GripperActionController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+manip_arm_controller:
+  ros__parameters:
+    joints:
+      - baseplate2_j_base_link
+      - link1_1_j_shaft1
+      - shaft2_j_link2_1
+      - link3_j_shaft3
+      - bevel1_j_link3
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+manip_hand_controller:
+  ros__parameters:
+    joint: claw2_j_threded_rod_up

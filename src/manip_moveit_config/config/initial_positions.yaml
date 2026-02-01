@@ -1,0 +1,9 @@
+# Default initial positions for manipulator_urdf's ros2_control fake system
+
+initial_positions:
+  baseplate2_j_base_link: 0
+  bevel1_j_link3: 0
+  claw2_j_threded_rod_up: 0
+  link1_1_j_shaft1: 0
+  link3_j_shaft3: 0
+  shaft2_j_link2_1: 0

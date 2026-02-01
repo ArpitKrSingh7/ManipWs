@@ -1,0 +1,12 @@
+joint_names:
+  - lin1_bottom_j_motor_holder_plate2
+  - manipulaotr_base_plate_j_base_plate
+  - link2_base_holder_j_link2_holder_plate
+  - bevel_2_1_j_link3
+  - bevel1_j_link3_coupler
+  - claw2_j_threded_rod_down
+
+joint_to_motor_topic:
+  lin1_bottom_j_motor_holder_plate2: /motor1/target_deg
+  manipulaotr_base_plate_j_base_plate: /motor2/target_deg
+  link2_base_holder_j_link2_holder_plate: /motor3/target_deg
